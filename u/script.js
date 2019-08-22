@@ -20,7 +20,7 @@
 		if(SELECTED_FILE!=null){
 			[].slice.call(SELECTED_FILE).forEach(file=>{
 				const ref=storage.ref("root/share/"+file.name.split(".")[0]);
-				ref.put(file).then(snapshot=>ref.getDownloadURL().then(url=>database.ref("share").child(file.name).set({
+				ref.put(file).then(snapshot=>ref.getDownloadURL().then(url=>database.ref("share").push({
 					name: file.name,
 					url: url
 				})));
