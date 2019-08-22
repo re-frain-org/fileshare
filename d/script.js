@@ -13,12 +13,13 @@
 	database.ref("share").once("value",snapshot=>{
 		const val=snapshot.val();
 		if(val!=null){
-			Object.keys(val).forEach(currentValue=>{
+			Object.keys(val).forEach(key=>{
+				const data=val[key];
 				const li=document.createElement("li");
 				const a=document.createElement("a");
-				a.download=currentValue.name;
-				a.href=currentValue.url;
-				a.textContent=currentValue.name;
+				a.download=data.name;
+				a.href=data.url;
+				a.textContent=data.name;
 				li.appendChild(a);
 				list.appendChild(li);
 			});
