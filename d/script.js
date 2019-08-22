@@ -10,7 +10,7 @@
 		storageBucket: "thumb-gen.appspot.com"
 	});
 	const database=firebase.database();
-	database.ref("share").once(snapshot=>{
+	database.ref("share").once("value",snapshot=>{
 		const val=snapshot.val();
 		if(val!=null){
 			Object.keys(val).forEach(currentValue=>{
